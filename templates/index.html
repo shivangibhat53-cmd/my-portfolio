@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Portfolio</title>
-    </head>
-    <body>
-        <h1>Welcome to my portfolio</h1>
-        <a href ="/projects">Projects</a>
-        <a href = "/contact">Contact</a>
-    </body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Welcome to my portfolio</h1>
+<!--<a href ="/projects">Projects</a>
+<a href = "/contact">Contact</a>-->  <!-- We removed this after introducing Bootstrap CSS navbar in layout.html 
+                                          which created navigation bar on top of the home page-->
+{% endblock %}
+
 
