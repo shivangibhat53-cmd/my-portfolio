@@ -5,6 +5,18 @@
 <!--<a href ="/projects">Projects</a>
 <a href = "/contact">Contact</a>-->  <!-- We removed this after introducing Bootstrap CSS navbar in layout.html 
                                           which created navigation bar on top of the home page-->
+<div class = "row">
+{% for project in projects[:3] %}
+<div class = "col-mb-4">
+    <div class = "card shadow-sm">
+        <div class = "card-body">
+            <h5>{{ project[1] }}</h5>
+            <p>{{ project[2] }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
 {% endblock %}
 
 

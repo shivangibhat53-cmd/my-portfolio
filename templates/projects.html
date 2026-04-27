@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2 class="mb-7">My Projects</h2>
+
+<div class = "row">
+    {% for project in projects %}
+    <div class = "col-md-4">
+        <div class = "card mb-4 shadow-sm">
+            <div class=" card-body">
+            <h5 class="card-title">{{ project[1] }}</h5>
+            <p class ="card-text">{{ project[2] }}</p>
+            <a href="{{ project[3] }}" class = "btn btn-primary">View Project</a>
+            </div>
+        </div>    
+    </div>
+    {% endfor %}
+</div>
+
+
+<!--<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Project 1</h5>
+                <p class="card-text">Short description of project.</p>
+                <a href="#" class="btn btn-primary mt-auto w-100">View Project</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Project 2</h5>
+                <p class ="card-text">Another short description.</p>
+                <a href="#" class="btn btn-primary mt-auto w-100">View Project</a>
+            
+            </div>
+        </div>
+    </div>
+</div> ### THIS CODE WAS USED BEFORE MAKING CARDS DYNAMIC-->
+{% endblock %}
