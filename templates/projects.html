@@ -2,15 +2,24 @@
 
 {% block content %}
 <h2 class="mb-7">My Projects</h2>
-
+<h2>Add Project</h2>
+<form method = "POST" enctype = "multipart/form-data">
+    <input type = "text" name = "title" placeholder = "Title" class = "form-control mb-3" required>
+    <input type = "text" name = "description" placeholder = "Description" class = "form-control mb-3" required>
+    <input type = "text" name = "link" placeholder = "Project Link" class = "form-control mb-3" required>
+    <input type = "file" name = "image" class = "form-control mb-3" required>
+    <button class = "btn btn-primary"> Add Project</button>
+</form>
 <div class = "row">
     {% for project in projects %}
     <div class = "col-md-4">
         <div class = "card mb-4 shadow-sm">
+            <img src="{{ url_for('static', filename='images/' + project['image']) if project['image'] else url_for('static', filename='images/default.jpg') }}"
+     class="card-img-top" alt="Project Image">
             <div class=" card-body">
-            <h5 class="card-title">{{ project[1] }}</h5>
-            <p class ="card-text">{{ project[2] }}</p>
-            <a href="{{ project[3] }}" class = "btn btn-primary">View Project</a>
+            <h5 class="card-title">{{ project["title"] }}</h5>
+            <p class ="card-text">{{ project["description"] }}</p>
+            <a href="{{ project["link"] }}" class = "btn btn-primary">View Project</a>
             </div>
         </div>    
     </div>
