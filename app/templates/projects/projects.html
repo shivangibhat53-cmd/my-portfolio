@@ -1,0 +1,31 @@
+{% extends 'layout.html'%}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+<form method = "POST" enctype = "multipart/form-data" class = "mb-4">
+    <input type = "text" name = "title" placeholder = "Project Title" class = "form-control mb-2" required>
+    <input type = "text" name = "description" placeholder="Project Description" class = "form-control mb-2" required>
+    <input type = "text" name = "repolink" placeholder = "GitHub repo" class = "form-control mb-2"> 
+    <input type = "text" name = "tech_stack" placeholder = "Tech Stack" class = "form-control mb-2"> 
+    <input type = "file" name = "image" class ="form-control mb-2">
+    <button class = "btn btn-primary">Add Project</button>
+</form>
+
+<div class = "row g-4">
+    {% for project in projects %}
+        <div class = "col-12 col-sm-6 col-lg-4">
+            <a href="{{ url_for('projects.project_detail', project_id = project.id) }}" class = "text-decoration-none text-dark">
+            <div class = "card shadow-sm h-100">
+                <img src = "{{ url_for('static',filename = 'uploads/'+ project.image) }}" class = "card-img-top project-image">
+                <div class = "card-body d-flex flex-column">
+                    <h5 class = "card-title">{{ project.title }}</h5>
+                    <p class = "card-text">{{ project.description }}</p>
+                </div>
+            </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

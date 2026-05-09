@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class = "col-lg-8">
+        <div class="card shadow-lg border-0">
+            <img src = "{{ url_for('static', filename = 'uploads/' + project.image) }}"
+                class = "img-fluid rounded-top project-detail-image"
+                alt = "Project Image">
+            <div class = "card-body p-4">
+                <h1 class = "mb-4">{{ project.title }}</h1>
+                {% if project.gitlink %}
+                <a href = "{{ project.gitlink }}" target = "black" class = "btn btn-primary mb-3">Visit Project</a>
+                {% endif %}
+                <p class = "text-muted">{{ project.description }}</p>
+                <a href = "{{ url_for('projects.project_page') }}" class = "btn btn-outine-secondary">Back to Projects</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

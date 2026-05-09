@@ -1,0 +1,45 @@
+.project-image{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+
+    transition: transform 0.4s ease;
+
+}
+
+.card{
+    overflow: hidden;
+    border: none;
+
+    border-radius: 16px;  
+
+    transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+        
+}
+
+.card.hover{
+    transform : translateY(-5px);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.btn{
+    transition: all 0.3s ease;
+}
+
+.btn:hover{
+    transform: scale(1.03);
+}
+
+.project-detail-image {
+    max-height: 500px;
+    object-fit: cover;
+}
