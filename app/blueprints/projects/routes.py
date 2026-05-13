@@ -6,6 +6,7 @@ from flask import render_template, request, current_app, redirect, url_for, flas
 from werkzeug.utils import secure_filename
 from  app.extensions import db
 from app.models import Project
+from flask_login import current_user
 
 
 ALLOWED_EXTENSIONS = {'.png','.jpg','.jpeg','.gif'}
@@ -14,8 +15,11 @@ def allowed_file_extension(filename):
     return Path(filename).suffix.lower() in ALLOWED_EXTENSIONS  #Pathclass used to get file extension using its method suffix
 
 @projects.route("/", methods = ["GET","POST"])
+
 def project_page():
     if request.method == "POST":
+        if not current_user.is_authenticated:
+            return redirect(url_for("auth.login"))
         print("Form Submitted")
         title = request.form.get("title")
         print("TITLE: ",title)

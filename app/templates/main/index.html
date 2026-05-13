@@ -1,12 +1,23 @@
-{% extends "layout.html" %}
-
-{% block title %}Home{% endblock %}
-
+{% extends 'layout.html' %}
 {% block content %}
-    <h1>Welcome to my My Portfolio</h1>
-    <p> This is my portfolio</p>
-    
-    <a href="{{ url_for('projects.project_page') }}" class="btn btn-primary mt-3">
-        View Projects 
-    </a>
+<section class = "hero-section d-flex align-items-center">
+    <div class = "container">
+        <div class = "row align items-center">
+            <div class = "col-lg-6 hero-text">
+                <h1 class = "display-3 fw-bold mb-4">
+                    Building Modern Portfolio
+                </h1>
+                <p class = "lead mb-4"> Add something about my experience</p>
+
+                <div class = "d-flex gap-3">
+                    <a href = "{{ url_for('projects.project_page') }}" class = "btn btn-primary btn-lg">View Projects </a>
+                    <a href="#" class="btn btn-outline-light btn-lg">Contact Me</a>
+                </div>
+            </div>
+            <div class = "col-lg-6 text-center">
+                <img src="{{ url_for('static',filename='uploads/Resume.jpg') }}" class = "hero-image img-fluid" alt = "Hero Image">
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
